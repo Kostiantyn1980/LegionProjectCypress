@@ -42,24 +42,24 @@ describe('template spec', () => {
 
   it('negative dates test Checkin', () => {
     cy.get('[name="Filter.CheckIn"]').clear()
-    cy.get('[name="Filter.CheckIn"]').type('3103-13-33').should('have.value', '3103-13-33')
+    cy.get('[name="Filter.CheckIn"]').type('-201-13-33').should('have.value', '-201-13-33')
 
   })
   it('negative dates test Checkout', () => {
     cy.get('[name="Filter.CheckOut"]').clear()
-    cy.get('[name="Filter.CheckOut"]').type('@#$%-06-14').should('have.value', '@#$%-06-14')
+    cy.get('[name="Filter.CheckOut"]').type('1111-06-14').should('have.value', '1111-06-14')
     cy.get('[type="submit"]').click()
 
   })
   it('negative Adults test', () => {
     cy.get('[class="form-control city-select"]').select('Jerusalem')
-    cy.get('[id="Filter_AdultNum"]').clear().type(50).should('have.value', '50')
+    cy.get('[id="Filter_AdultNum"]').clear().type(-5).should('have.value', '-5')
     cy.get('[type="submit"]').click()
 
   })
   it('negative Childrens test', () => {
     cy.get('[class="form-control city-select"]').select('Jerusalem')
-    cy.get('[name="Filter.ChildrenNum"]').clear().type(50).should('have.value', '50')
+    cy.get('[name="Filter.ChildrenNum"]').clear().type(-2).should('have.value', '-2')
     cy.get('[type="submit"]').click()
 
 
